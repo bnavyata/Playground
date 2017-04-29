@@ -5,9 +5,6 @@
 #include <vector>
 using namespace std;
 
-stack<int> myStack;
-stack<int> myMinStack;
-
 void reverse(string &str) {
 	char temp;
 	int length = str.length();
