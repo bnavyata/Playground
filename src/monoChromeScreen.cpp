@@ -11,8 +11,8 @@ void drawLine(char* screen, int width, int x1, int x2,int y) {
 	if (startOffset != 0)
 		firstFullByte++;
 
-	int lastFullByte = x1 / 8;
-	int endOffset = x1 % 8;
+	int lastFullByte = x2 / 8;
+	int endOffset = x2 % 8;
 	if (endOffset != 0)
 		lastFullByte++;
 
