@@ -24,7 +24,7 @@ void drawLine(char* screen, int width, int x1, int x2,int y) {
 	char endMask = (char)~(0xFF >> endOffset+1);
 
 	//if both x1 and x2 are in same byte
-	if ((x1 % 8) == (x2 % 8)) {
+	if ((x1 / 8) == (x2 / 8)) {
 		char mask = startMask & endMask;
 		screen[(width / 8)*y + (x1/8)] |= mask;
 	}
