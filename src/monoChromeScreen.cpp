@@ -14,7 +14,7 @@ void drawLine(char* screen, int width, int x1, int x2,int y) {
 	int lastFullByte = x2 / 8;
 	int endOffset = x2 % 8;
 	if (endOffset != 0)
-		lastFullByte++;
+		lastFullByte--;
 
 	//set pixels for full bytes
 	for (int b = firstFullByte; b < lastFullByte; b++)
