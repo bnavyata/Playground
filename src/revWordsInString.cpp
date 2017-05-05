@@ -16,32 +16,30 @@ void reverseword(string &s, int i, int j) {
 void reverseWords(string &s) {
 	reverse(s.begin(), s.end());
 	int i = 0, j = 0;
-	int l = 0;
 	int len = s.length();
-	int wordcount = 0;
 
 	while (i<len) {
 		// skip spaces in front of the word
-		while (i<len && s[i] == ' ')
+		while (i < len && s[i] == ' ') {
 			i++;
+			j++;
+		}
+			
 		//if the whole string was only spaces, return
 		if (i == len)
 			break;
-		if (wordcount)
-			s[j++] = ' ';
-		l = j;
-		while (i<len && s[i] != ' ') {
-			s[j] = s[i];
+
+		while (j<len && s[j] != ' ') 
 			j++;
-			i++;
-		}
 		// reverse word in place
-		reverseword(s, l, j - 1);
-		wordcount++;
-	}
+		reverseword(s, i, j - 1);
+		j++;
+		i = j;
+	}	
 	// resize result string
 	s.resize(j);
 }
+
 
 int main() {
 	string s = "My name is navyata";
