@@ -13,20 +13,20 @@ void drawLine(char* screen, int width, int x1, int x2,int y) {
 
 	int lastFullByte = x2 / 8;
 	int endOffset = x2 % 8;
-	if (endOffset != 0)
+	if (endOffset != 7)
 		lastFullByte--;
 
 	//set pixels for full bytes
 	for (int b = firstFullByte; b < lastFullByte; b++)
-		screen[(width / 8)*y + b] = 0xFF;
+		screen[(width / 8)*y + b] = (char)0xFF;
 
-	char startMask = 0xFF >> startOffset;
-	char endMask = ~(0xFF >> endOffset+1);
+	char startMask = (char)0xFF >> startOffset;
+	char endMask = (char)~(0xFF >> endOffset+1);
 
 	//if both x1 and x2 are in same byte
 	if ((x1 % 8) == (x2 % 8)) {
 		char mask = startMask & endMask;
-		screen[(width / 8)*y + x1] |= mask;
+		screen[(width / 8)*y + (x1/8)] |= mask;
 	}
 	else {
 		if (startOffset != 0) {
