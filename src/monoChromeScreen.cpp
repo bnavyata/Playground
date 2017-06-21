@@ -30,11 +30,11 @@ void drawLine(char* screen, int width, int x1, int x2,int y) {
 	}
 	else {
 		if (startOffset != 0) {
-			char num = (width / 8)*y + firstFullByte - 1;
+			int num = (width / 8)*y + firstFullByte - 1;
 			screen[num] |= startMask;
 		}
 		if (endOffset != 7) {
-			char num = (width / 8)*y + lastFullByte + 1;
+			int num = (width / 8)*y + lastFullByte + 1;
 			screen[num] |=endMask;
 		}
 	}
